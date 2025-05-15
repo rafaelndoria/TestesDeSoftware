@@ -22,7 +22,7 @@ namespace Demo.Tests
             var calculadora = new Calculadora();
 
             // Act
-            var result = calculadora.Somar(1.13123123123, 2.2312313123);
+            var result = calculadora.Somar((int)1.13123123123, (int)2.2312313123);
 
             // Assert
             Assert.NotEqual(3.3, result,1);
