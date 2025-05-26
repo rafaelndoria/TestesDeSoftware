@@ -158,5 +158,20 @@ namespace NerdStore.Vendas.Domain.Tests
             // Assert
             Assert.Equal(totalPedido, pedido.ValorTotal);
         }
+
+      [Fact(DisplayName = "Aplicar Voucher Valido")]
+      [Trait("Categoria", "Vendas - Pedido")]
+      public void Pedido_AplicarVoucherValido_DeveRetornarSemErros()
+      {
+         // Arrange
+         var pedido = Pedido.PedidoFactory.NovoPedidoRascunho(Guid.NewGuid());
+         var voucher = new Voucher("PROMO-15-REAIS", null, 15, ETipoDescontoVoucher.Valor, 1, DateTime.Now.AddDays(15), true, false);
+
+         // Act
+         var resultado = pedido.AplicarVoucher(voucher);
+
+         // Assert
+         Assert.True(resultado.IsValid);
+      }
     }
 }
