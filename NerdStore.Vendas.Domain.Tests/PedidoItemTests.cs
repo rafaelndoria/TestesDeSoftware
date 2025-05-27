@@ -10,7 +10,7 @@ namespace NerdStore.Vendas.Domain.Tests
         {
             // Arrange
             var produtoId = Guid.NewGuid();
-            
+
             // Act & Assert
             Assert.Throws<DomainException>(() => new PedidoItem(produtoId, "Produto Teste", Pedido.MAX_UNIDADES_ITEM + 1, 100));
         }
